@@ -157,16 +157,18 @@ public class FormPulsa extends javax.swing.JFrame {
         ThrownData thrown = new ThrownData();
         
         String noTelp = noTelpTextField.getText();
-        String nominalPulsa = nominalComboBox.getSelectedItem().toString().replace(".", "");
+        String nominalPulsa = nominalComboBox.getSelectedItem().toString().replaceAll("\\D", "");
         
         try {
             if (noTelp.length() < 10 || noTelp.length() > 13) {
+                throw new NumberFormatException();
+            } else if (nominalPulsa.equals("")) {
                 throw new NumberFormatException();
             }
             Long.parseLong(noTelp);
         } 
         catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "No Telepon Yang Diinput TIdak Valid");
+            JOptionPane.showMessageDialog(null, "Proses gagal, pastikan Operator, No Telpon dan Nominal terisi dengan benar");
             noTelpTextField.setText("");
             return;
         }

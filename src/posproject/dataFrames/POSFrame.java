@@ -610,7 +610,7 @@ public class POSFrame extends javax.swing.JFrame {
                     transaksi2.detailQTYBarang.add(jumlahBelanja);
                     transaksi2.detailHargaBarang.add(barang.getHarga());
 
-                    System.out.println("Barang berhasil ditemukan");
+                    System.out.println("Barang ditemukan");
                     namaTextField.setText(barang.getNama());
                     hargaTextField.setText(Float.toString(barang.getHarga()));
 

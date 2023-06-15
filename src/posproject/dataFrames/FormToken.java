@@ -48,7 +48,7 @@ public class FormToken extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Nominal");
 
-        nominalComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Pilih Nominal - ", "Rp. 20.000", "Rp. 50.000", "Rp. 100.000", "Rp. 200.000", "Rp. 500.000", "Rp. 1.000.000", "Rp. 5.000.000", " " }));
+        nominalComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Pilih Nominal -", "Rp. 20.000", "Rp. 50.000", "Rp. 100.000", "Rp. 200.000", "Rp. 500.000", "Rp. 1.000.000", "Rp. 5.000.000", " " }));
         nominalComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nominalComboBoxActionPerformed(evt);
@@ -135,10 +135,14 @@ public class FormToken extends javax.swing.JFrame {
 
             if (noMeteran.length() != 11) {
                 throw new NumberFormatException();
+            } else if (nominalToken.equals("")) {
+                throw new NumberFormatException();
             }
+            
+            
         } 
         catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Nomor Meteran Tidak Valid ! Input 11 digit nomor meteran.");
+            JOptionPane.showMessageDialog(null, "Pastikan No Meteran dan Nominal valid, Input 11 digit nomor meteran.");
             noMeteranTextField.setText("");
             return;
         }

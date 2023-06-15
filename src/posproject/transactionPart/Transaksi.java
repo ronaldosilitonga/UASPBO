@@ -25,7 +25,7 @@ public class Transaksi{
         
         try{
             
-            String sql = "INSERT INTO TRANSAKSI (id_transaksi,total_harga,total_dibayar,kembalian, metode_pembayaran) VALUES (?,?,?,?,?);";
+            String sql = "INSERT INTO transaksi (id_transaksi,total_harga,total_dibayar,kembalian, metode_pembayaran) VALUES (?,?,?,?,?);";
             PreparedStatement stmt = DBConnector.connection.prepareStatement(sql);
             
             stmt.setInt(1, id_transaksi);
